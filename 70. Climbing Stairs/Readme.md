@@ -1,6 +1,8 @@
 # 🚶‍♂️ Climbing Stairs Problem Solution 🚶‍♀️
 
-Welcome to the **Climbing Stairs** repository! This repository contains a fun and interactive solution to the famous LeetCode problem: **Climbing Stairs**. Here, I'll share my thought process, explain each line of code, and help you understand the magic behind finding the number of ways to climb `n` stairs. 
+Welcome to the **Climbing Stairs** repository! This repository contains a fun and interactive solution
+to the famous LeetCode problem: **Climbing Stairs**.
+Here, I'll share my thought process, explain each line of code, and help you understand the magic behind finding the number of ways to climb `n` stairs. 
 
 ---
 
@@ -12,7 +14,7 @@ Given a staircase with `n` steps, you can climb either **1 step** or **2 steps**
 ## 🧠 My Thought Process
 I started solving the problem by observing how many ways I could climb small sets of stairs:
 
-1. If there's **1 step**, there's only **1 way**: just take that single step. 🪜
+1. If there's **1 step**, there's only **1 way**: just take that single step. 
 2. If there are **2 steps**, there are **2 ways**: (1 + 1) or (2).
 3. For **3 steps**, I noticed a pattern! The number of ways is the **sum** of the ways to climb 1 and 2 steps.
    - Why? To reach the 3rd step, you could either:
@@ -78,16 +80,6 @@ public class Solution {
 - **Dynamic Programming** ensures the solution is fast and efficient. 🚀
 - **Recursive Approach** makes the solution easy to understand and elegant.
 - Commented code for readability. 🧑‍💻
-
----
-
-## 📂 How to Use
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/your_username/climbing-stairs.git
-   ```
-2. Open the project in your favorite IDE.
-3. Run the program and test it with different values of `n`.
 
 ---
 
