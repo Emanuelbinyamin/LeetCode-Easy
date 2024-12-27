@@ -31,28 +31,28 @@ The solution is implemented in C#. It uses dynamic programming to optimize the r
 ### Solution.cs
 ```csharp
 public class Solution {
-    public int ClimbStairs(int n) {
-        // Step 1: Create a dp array to store results for subproblems
-        int[] dp = new int[n + 1];
-        dp[1] = 1; // Base case: Only 1 way to climb 1 step
+    public int ClimbStairs(int steps) {
+        // Step 1: Create an array to store results for subproblems
+        int[] waysToClimb = new int[steps + 1];
+        waysToClimb[1] = 1; // Base case: Only 1 way to climb 1 step
 
         // Step 2: Calculate and return the number of ways using helper function
-        return GetWaysToClimb(n, dp);
+        return CalculateWays(steps, waysToClimb);
     }
 
-    private int GetWaysToClimb(int n, int[] dp) {
-        if (n == 1) return dp[n]; // If there's 1 step, return 1
+    private int CalculateWays(int steps, int[] waysToClimb) {
+        if (steps == 1) return waysToClimb[steps]; // If there's 1 step, return 1
 
-        if (n == 2) {
-            dp[2] = 2; // Base case: 2 ways to climb 2 steps
-            return dp[n];
+        if (steps == 2) {
+            waysToClimb[2] = 2; // Base case: 2 ways to climb 2 steps
+            return waysToClimb[steps];
         }
 
-        if (dp[n] > 0) return dp[n]; // Use cached result if already calculated
+        if (waysToClimb[steps] > 0) return waysToClimb[steps]; // Use cached result if already calculated
 
         // Recursive case: Ways to climb current step = sum of previous two steps
-        dp[n] = GetWaysToClimb(n - 1, dp) + GetWaysToClimb(n - 2, dp);
-        return dp[n];
+        waysToClimb[steps] = CalculateWays(steps - 1, waysToClimb) + CalculateWays(steps - 2, waysToClimb);
+        return waysToClimb[steps];
     }
 }
 ```
@@ -60,19 +60,19 @@ public class Solution {
 ---
 
 ## 📝 Explanation of Code
-1. **Dynamic Programming Array (`dp`)**:
-   - `dp[i]` stores the number of ways to climb `i` steps.
+1. **Dynamic Programming Array (`waysToClimb`)**:
+   - `waysToClimb[i]` stores the number of ways to climb `i` steps.
    - This prevents recalculating results for the same number of steps multiple times.
 
 2. **Base Cases**:
-   - `dp[1] = 1`: There's only 1 way to climb 1 step.
-   - `dp[2] = 2`: There are 2 ways to climb 2 steps (1 + 1 or 2).
+   - `waysToClimb[1] = 1`: There's only 1 way to climb 1 step.
+   - `waysToClimb[2] = 2`: There are 2 ways to climb 2 steps (1 + 1 or 2).
 
 3. **Recursive Logic**:
    - For `n > 2`, the number of ways to climb `n` steps is the sum of ways to climb `n-1` and `n-2` steps.
 
 4. **Optimization**:
-   - Check if `dp[n] > 0` to reuse already computed results, reducing the time complexity to **O(n)**.
+   - Check if `waysToClimb[n] > 0` to reuse already computed results, reducing the time complexity to **O(n)**.
 
 ---
 
